@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Deficit Calc</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .poppins {
+            font-family: "Poppins", serif;
+            font-style: normal;
+        }
+
+        .bg{
+            background: url('bg.png');
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body class="poppins">
+    <nav class=" bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-semibold text-purple-500">1 Calc</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="homepage.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-600">Home</a>
+                        <a href="mathscalc.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-600">Maths</a>
+                        <a href="healthcalc.html" class="px-3 py-2 rounded-md text-sm font-medium bg-blue-700">Health</a>
+                        <a href="internetconnect.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-600">Internet And
+                            Connectivity</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button"
+                        class="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-700 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="homepage.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-600">Home</a>
+                <a href="mathscalc.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-600">Maths</a>
+                <a href="healthcalc.html" class="block px-3 py-2 rounded-md text-base font-medium bg-blue-700">Health</a>
+                <a href="internetconnect.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-600">Internet And
+                    Connectivity</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg flex items-center justify-center min-h-screen py-10">
+        <div class="shadow-2xl rounded-lg p-6 w-full max-w-lg">
+          <h1 class="text-2xl text-purple-500 font-bold text-center mb-4">Calorie Deficit Calc</h1>
+          
+          <!-- User Inputs -->
+          <label for="sex" class="text-gray-300 block font-semibold mb-2">Sex</label>
+          <select
+            id="sex"
+            class="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+      
+          <label for="age" class="text-gray-300 block font-semibold mb-2">Age (years)</label>
+          <input
+            type="number"
+            id="age"
+            class="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your age"
+          />
+      
+          <label for="height" class="text-gray-300 block font-semibold mb-2">Height (cm)</label>
+          <input
+            type="number"
+            id="height"
+            class="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your height"
+          />
+      
+          <label for="weight" class="text-gray-300 block font-semibold mb-2">Weight (kg)</label>
+          <input
+            type="number"
+            id="weight"
+            class="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your weight"
+          />
+      
+          <label for="targetWeight" class="text-gray-300 block font-semibold mb-2">Target Weight (kg)</label>
+          <input
+            type="number"
+            id="targetWeight"
+            class="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your target weight"
+          />
+      
+          <label for="activityLevel" class="text-gray-300 block font-semibold mb-2">Activity Level</label>
+          <select
+            id="activityLevel"
+            class="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="1.2">No exercise</option>
+            <option value="1.375">Light exercise</option>
+            <option value="1.55">Moderate exercise</option>
+            <option value="1.725">Hard exercise</option>
+          </select>
+      
+          <label for="pace" class="text-gray-300 block font-semibold mb-2">Weight Loss Pace</label>
+          <select
+            id="pace"
+            class="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="250">Relaxed (250 kcal/day)</option>
+            <option value="500">Normal (500 kcal/day)</option>
+            <option value="1000">Strict (1000 kcal/day)</option>
+          </select>
+      
+          <button
+            id="calculateButton"
+            class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+          >
+            Calculate Calories
+          </button>
+      
+          <div id="output" class="mt-4 text-lg font-semibold text-gray-300"></div>
+        </div>
+      </div>
+
+    <footer class="bg-gray-900 md:flex md:justify-between md:items-center lg:static md:fixed  bottom-0 left-0 w-screen sm:block">
+        <div class="px-6 py-4 flex md:items-start below-sm:justify-center sm:justify-center">
+            <p class="icon font-bold text-xl text-purple-700">1 Calc</p>
+            <p class="text-lg text-gray-200">&nbsp;&nbsp;|&nbsp;&nbsp;2025 Copyright</p>
+        </div>
+        <div class="flex justify-center py-5  ml-auto">
+            <section class="w-80">
+                <div class="flex justify-center space-x-6">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/ig__rahul70/" target="_blank"
+                        class="text-gray-500 hover:text-pink-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M7.5 2C4.5 2 2 4.5 2 7.5v9c0 3 2.5 5.5 5.5 5.5h9c3 0 5.5-2.5 5.5-5.5v-9C22 4.5 19.5 2 16.5 2h-9zm9 2c2.2 0 3.5 1.3 3.5 3.5v9c0 2.2-1.3 3.5-3.5 3.5h-9c-2.2 0-3.5-1.3-3.5-3.5v-9C5 5.3 6.3 4 7.5 4h9zM12 7c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 2c1.6 0 3 1.4 3 3s-1.4 3-3 3-3-1.4-3-3 1.4-3 3-3zm5-1.5c-.4 0-.75-.3-.75-.75s.3-.75.75-.75.75.3.75.75-.35.75-.75.75z" />
+                        </svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/rahul-malll-85989327b/" target="_blank"
+                        class="text-gray-500 hover:text-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M2.5 3C1.7 3 1 3.7 1 4.5v15c0 .8.7 1.5 1.5 1.5h19c.8 0 1.5-.7 1.5-1.5v-15c0-.8-.7-1.5-1.5-1.5h-19zm4 3c1.1 0 2 1 2 2 0 1.1-.9 2-2 2s-2-.9-2-2c0-1.1.9-2 2-2zm.5 4H4v8H7v-8zm4 0v8h3v-4c0-1 .4-2 1.5-2s1.5 1 1.5 2v4h3v-4.5c0-2.5-1.5-3.5-3.5-3.5-1.5 0-2.4.7-3 1.5v-1h-3z" />
+                        </svg>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="https://github.com/Rahul1038402" target="_blank" class="text-gray-500 hover:text-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.4 6.9 9.8.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6 1 0 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .8.1-.7.3-1.1.6-1.4-2.2-.3-4.5-1.1-4.5-5 0-1.1.4-2 1-2.7 0-.2-.3-1 .1-2 0 0 .8-.2 2.8 1 .8-.2 1.8-.4 2.7-.4s1.9.1 2.7.4c2-.2 2.8-1 2.8-1 .5 1 .2 1.8.1 2 .7.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.5 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5 4-1.4 6.9-5.3 6.9-9.8C22 6.6 17.5 2 12 2z" />
+                        </svg>
+                    </a>
+                </div>
+            </section>
+        </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('calculateButton').addEventListener('click', () => {
+          const sex = document.getElementById('sex').value;
+          const age = parseFloat(document.getElementById('age').value);
+          const height = parseFloat(document.getElementById('height').value);
+          const weight = parseFloat(document.getElementById('weight').value);
+          const targetWeight = parseFloat(document.getElementById('targetWeight').value);
+          const activityLevel = parseFloat(document.getElementById('activityLevel').value);
+          const pace = parseFloat(document.getElementById('pace').value);
+          const output = document.getElementById('output');
+    
+          // Input Validation
+          if (
+            isNaN(age) || isNaN(height) || isNaN(weight) || isNaN(targetWeight) ||
+            age <= 0 || height <= 0 || weight <= 0 || targetWeight <= 0
+          ) {
+            output.textContent = 'Please provide valid inputs!';
+            output.classList.add('text-red-500');
+            return;
+          }
+    
+          // Calculate Basal Metabolic Rate (BMR)
+          let bmr;
+          if (sex === 'male') {
+            bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+          } else {
+            bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+          }
+    
+          // Calculate Total Daily Energy Expenditure (TDEE)
+          const tdee = bmr * activityLevel;
+    
+          // Calculate Daily Calories to Lose Weight
+          const dailyCalories = tdee - pace;
+
+          // Calculate Time Required to Loose Weight
+          const targetloss = weight - targetWeight;
+          const weeklyloss = pace / 1100;
+          const reqdays = (targetloss / weeklyloss) * 7;
+    
+          // Display Results
+          output.innerHTML = `
+            <p>To achieve your target weight, keep your calories intake of  <span class="text-blue-900">${dailyCalories.toFixed(0)}</span> kcal/day.</p>
+            <p>It would require <span class="text-blue-900">${reqdays.toFixed(0)}</span> days to achieve target weight with current loss pace.</p>
+          `;
+          output.classList.remove('text-red-500');
+        });
+      </script>
+</body>
+</html>
